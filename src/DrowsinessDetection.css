@@ -1,0 +1,278 @@
+:root {
+  --primary: #4e54c8;
+  --primary-light: #8f94fb;
+  --danger: #e53935;
+  --warning: #ff9800;
+  --success: #4caf50;
+  --dark: #2c3e50;
+  --light: #f5f6fa;
+}
+
+.App {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #f5f6fa;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background: linear-gradient(to right, var(--primary), var(--primary-light));
+  color: white;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.header h1 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.content {
+  display: flex;
+  padding: 2rem;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  .content {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.video-container {
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+@media (min-width: 900px) {
+  .video-container {
+    margin-right: 2rem;
+    margin-bottom: 0;
+    flex: 3;
+  }
+}
+
+.video-wrapper {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #2c3e50;
+}
+
+.video-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2c3e50;
+  height: 400px;
+  border-radius: 8px;
+  color: white;
+}
+
+.video-feed {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.controls {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.button-primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.button-primary:hover:not(:disabled) {
+  background-color: var(--primary-light);
+  transform: translateY(-2px);
+}
+
+.button-secondary {
+  background-color: #e0e0e0;
+  color: #424242;
+}
+
+.button-secondary:hover:not(:disabled) {
+  background-color: #d0d0d0;
+}
+
+.stats-container {
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  .stats-container {
+    flex: 2;
+    max-width: 400px;
+  }
+}
+
+.status-card {
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  color: white;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+}
+
+.status-active {
+  background-color: var(--success);
+}
+
+.status-drowsy {
+  background-color: var(--warning);
+}
+
+.status-sleeping {
+  background-color: var(--danger);
+  animation: pulse 1.5s infinite;
+}
+
+.status-unknown {
+  background-color: var(--dark);
+}
+
+.status-waiting {
+  background-color: #bdbdbd;
+  color: #424242;
+}
+
+.status-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.alert-history {
+  margin-top: 2rem;
+}
+
+.alert-history h3 {
+  font-size: 1.25rem;
+  margin: 0 0 1rem;
+  color: var(--dark);
+}
+
+.alert-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.alert-item:last-child {
+  border-bottom: none;
+}
+
+.alert-type {
+  display: flex;
+  align-items: center;
+}
+
+.alert-type-icon {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.alert-type-drowsy {
+  background-color: var(--warning);
+}
+
+.alert-type-sleeping {
+  background-color: var(--danger);
+}
+
+.alert-time {
+  color: #757575;
+  font-size: 0.9rem;
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
