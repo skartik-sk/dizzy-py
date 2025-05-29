@@ -3,7 +3,7 @@ export async function detectDrowsiness(imageFile) {
   const formData = new FormData();
   formData.append('image', imageFile);
 
-  const response = await fetch('http://localhost:5001/api/detect', {
+  const response = await fetch('https://dizzyness-app-latest.onrender.com/api/detect', {
     method: 'POST',
     body: formData
   });

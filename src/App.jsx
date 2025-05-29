@@ -81,7 +81,7 @@ function App() {
           if (alertTimeoutRef.current) clearTimeout(alertTimeoutRef.current);
           alertTimeoutRef.current = setTimeout(() => {
             setAlertActive(false);
-          }, 100); // 2.5 seconds
+          }, 1000); // 2.5 seconds
         }
       }
     } else if (status === ACTIVE_STATUS) {
@@ -110,7 +110,7 @@ function App() {
         await videoRef.current.play();
         setStatus('Streaming...');
         setIsLoading(false);
-        intervalRef.current = setInterval(captureAndSendFrame, 100);
+        intervalRef.current = setInterval(captureAndSendFrame, 1000);
         enableSound();
         console.log("Camera started successfully");
       }
